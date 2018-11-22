@@ -1,7 +1,7 @@
 const config = require('config');
 const PouchDB = require('pouchdb');
 const _ = require('lodash');
-const db = new PouchDB(`http://admin:admin@localhost:5984/${config.get('db')}`);
+const db = require('./db');
 
 const views = {
 	_id: '_design/views',
