@@ -1,0 +1,29 @@
+version: "2.1"
+
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - "3123:3123"
+    depends_on:
+      couchdb:
+        condition: service_healthy
+    links: 
+      - couchdb:localhost
+  couchdb:
+    image: couchdb
+    environment: 
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: admin
+    restart: always
+    volumes:
+      - couchdb-data-volume:/usr/local/var/lib/couchdb
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:5984"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+volumes:
+  couchdb-data-volume:
+ 
