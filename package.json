@@ -7,7 +7,8 @@
     "test": "NODE_ENV=test jest --watchAll --verbose --runInBand ",
     "covered-test": "NODE_ENV=test jest --watchAll --verbose --runInBand --coverage ",
     "start": "export NODE_ENV= && node server/",
-    "dev": "export NODE_ENV= && nodemon server/"
+    "dev": "export NODE_ENV= && nodemon server/",
+    "run-docker": "docker-compose up -d couchdb && docker-compose up app"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
