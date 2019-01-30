@@ -1,3 +1,4 @@
 {
-    "db-url": "DB_URL"
+    "db-url": "DB_URL",
+    "db": "DB_NAME"
 }
